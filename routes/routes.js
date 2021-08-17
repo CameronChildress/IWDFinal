@@ -28,7 +28,7 @@ let User = mongoose.model('User_Collection', userSchema);
 
 
 exports.index = (req, res) => {
-    res.render('create', {
+    res.render('index', {
         title: (1==1 ? "logged in" : "logged out" )
     })
 }
