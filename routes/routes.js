@@ -26,6 +26,7 @@ let userSchema = mongoose.Schema({
 
 let User = mongoose.model('User_Collection', userSchema);
 
+
 exports.index = (req, res) => {
     res.render('create', {
         title: (1==1 ? "logged in" : "logged out" )
@@ -40,7 +41,8 @@ exports.details = (req, res) => {
 
 exports.create = (req, res) => {
     res.render('createAccount', {
-        title: 'Add User'
+        title: 'Create User!'
+
     });
 };
 
