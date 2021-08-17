@@ -1,0 +1,34 @@
+extends layout 
+
+block content 
+    form(id='form' method="post" action="/createNew" + person.id)
+        p Username 
+            input(type="text" name="username")
+        p Password 
+            input(type="text" name="password")      
+        p Confirm Password 
+            input(type="text" name="confirm")    
+        p Email  
+            input(type="text" name="email")    
+        p Age 
+            input(type="text" name="age")    
+        p Question 1 - im gonna blow up and act like i dont know no body
+            select(name="questionOneAnswer")
+                option(value="Human") Human
+                option(value="Ghost") Ghost
+                option(value="Goat") Goat
+                option(value="Vampire") Vampire
+        p Question 2 - yrah yrah yrah yrah
+            select(name="questionTwoAnswer")
+                option(value="Human") Human
+                option(value="Ghost") Ghost
+                option(value="Goat") Goat
+                option(value="Vampire") Vampire 
+        p Question 3 - blah blah
+            select(name="questionThreeAnswer")
+                option(value="Human") Human
+                option(value="Ghost") Ghost
+                option(value="Goat") Goat
+                option(value="Vampire") Vampire
+        p 
+            input(type="submit" value="Confirm")
