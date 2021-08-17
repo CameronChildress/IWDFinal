@@ -14,10 +14,40 @@ let mdb = mongoose.connection;
 mdb.on('error', console.error.bind(console, 'connection error'));
 mdb.once('open', callback => {});
 
-// let personSchema = mongoose.Schema({
-//     name: String,
-//     age: String,
-//     species: String
-// });
+let userSchema = mongoose.Schema({
+    username: String,
+    password: String,
+    email: String,
+    age: String,
+    question1Answer: String,
+    question2Answer: String,
+    question3Answer: String
+});
 
-// let Person = mongoose.model('People_Collection', personSchema);
+let User = mongoose.model('User_Collection', userSchema);
+
+exports.create = (req, res) => {
+    res.render('create', {
+        title: 'Add User'
+    });
+};
+
+exports.createUser = (req, res) => {
+    let user = new User({
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email,
+        age: req.body.age,
+        question1Answer: req.body.question1Answer,
+        question2Answer: req.body.question2Answer,
+        question3Answer: req.body.question3Answer
+    });
+
+    user.save((err, user) => {
+        if(err) return console.error(err);
+        console.log(req.body.username + ' added.');
+    });
+
+    //CHANGE TO HOME PAGE IF NEEDED
+    res.redirect('/');
+};
