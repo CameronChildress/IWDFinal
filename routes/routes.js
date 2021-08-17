@@ -27,8 +27,8 @@ let userSchema = mongoose.Schema({
 let User = mongoose.model('User_Collection', userSchema);
 
 exports.create = (req, res) => {
-    res.render('create', {
-        title: 'Add User'
+    res.render('createAccount', {
+        title: 'Create User!'
     });
 };
 
