@@ -12,3 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 let urlencodedparser = express.urlencoded({
     extended: false
 });
+
+
+
+app.listen(3000);
