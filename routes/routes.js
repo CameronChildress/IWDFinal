@@ -14,10 +14,15 @@ let mdb = mongoose.connection;
 mdb.on('error', console.error.bind(console, 'connection error'));
 mdb.once('open', callback => {});
 
-// let personSchema = mongoose.Schema({
-//     name: String,
-//     age: String,
-//     species: String
-// });
+let userSchema = mongoose.Schema({
+    username: String,
+    password: String,
+    email: String,
+    age: String,
+    question1Answer: String,
+    question2Answer: String,
+    question3Answer: String
+});
 
-// let Person = mongoose.model('People_Collection', personSchema);
+let User = mongoose.model('User_Collection', userSchema);
+
