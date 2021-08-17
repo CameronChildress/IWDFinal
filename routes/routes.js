@@ -26,8 +26,20 @@ let userSchema = mongoose.Schema({
 
 let User = mongoose.model('User_Collection', userSchema);
 
-exports.create = (req, res) => {
+exports.index = (req, res) => {
     res.render('create', {
+        title: (1==1 ? "logged in" : "logged out" )
+    })
+}
+
+exports.details = (req, res) => {
+    res.render('accountDetails', {
+        title: (1==1 ? "logged in" : "logged out" )
+    })
+}
+
+exports.create = (req, res) => {
+    res.render('createAccount', {
         title: 'Add User'
     });
 };
