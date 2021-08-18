@@ -18,8 +18,8 @@ let urlencodedparser = express.urlencoded({
 
 app.get('/', routes.index);
 app.get('/login', routes.login);
-app.get('/createAccount',  routes.createAccount);
-app.post('/create', urlencodedparser, routes.create);
+app.get('/create',  routes.create);
+app.post('/createAccount', urlencodedparser, routes.createAccount);
 app.get('/accountDetails', routes.details);
 
 
