@@ -16,6 +16,11 @@ let urlencodedparser = express.urlencoded({
     extended: false
 });
 
+app.get('/', routes.index);
+app.get('/login', routes.login)
+app.get('/create', routes.create);
+app.post('/createAccount', urlencodedparser, routes.createAccount);
+app.get('/accountDetails', routes.accountDetails);
 
 
 app.listen(3000);
