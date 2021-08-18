@@ -41,12 +41,12 @@ exports.details = (req, res) => {
 
 exports.create = (req, res) => {
     res.render('createAccount', {
-        title: 'Create User!'
+        title: 'Create Account!'
 
     });
 };
 
-exports.createUser = (req, res) => {
+exports.createAccount = (req, res) => {
     let user = new User({
         username: req.body.username,
         password: req.body.password,
