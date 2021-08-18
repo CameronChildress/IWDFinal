@@ -39,6 +39,12 @@ exports.details = (req, res) => {
     })
 }
 
+exports.login = (req, res) => {
+    res.render('login', {
+        title: (1==1 ? "logged in" : "logged out" )
+    })
+}
+
 exports.create = (req, res) => {
     res.render('createAccount', {
         title: 'Create Account!'

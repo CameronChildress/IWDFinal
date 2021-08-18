@@ -17,10 +17,10 @@ let urlencodedparser = express.urlencoded({
 });
 
 app.get('/', routes.index);
-app.get('/login', routes.login)
+app.get('/login', routes.login);
 app.get('/create', routes.create);
 app.post('/createAccount', urlencodedparser, routes.createAccount);
-app.get('/accountDetails', routes.accountDetails);
+app.get('/accountDetails', routes.details);
 
 
 app.listen(3000);
