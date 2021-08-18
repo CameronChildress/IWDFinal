@@ -48,7 +48,6 @@ exports.login = (req, res) => {
 exports.create = (req, res) => {
     res.render('createAccount', {
         title: 'Create Account!'
-
     });
 };
 
