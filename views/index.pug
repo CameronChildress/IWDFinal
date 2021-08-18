@@ -1,5 +1,7 @@
 extends layout 
 
 block content 
-    p this is where it will say if you are signed in or not 
-    p put a button that takes you to the login
+    p(name="indicator") this is where it will say if you are signed in or not 
+    form(action="POST" )
+        p 
+            input(type="submit" value="Login")
