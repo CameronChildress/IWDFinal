@@ -29,21 +29,37 @@ let User = mongoose.model('User_Collection', userSchema);
 
 exports.index = (req, res) => {
     res.render('index', {
-        title: (1==1 ? "logged in" : "logged out" )
+        title: "title"
     })
 }
 
 exports.details = (req, res) => {
     res.render('accountDetails', {
-        title: (1==1 ? "logged in" : "logged out" )
+        title: (req.session.user.isAuthenticated ? "logged in" : "logged out" )
     })
 }
 
 exports.login = (req, res) => {
     res.render('login', {
-        title: (1==1 ? "logged in" : "logged out" )
+        title: (req.session.user.isAuthenticated ? "logged in" : "logged out" )
+        
     })
 }
+
+exports.loginAction = ((req, res) =>{
+    console.log(req.body.username);
+    if(req.body.username == 'user' && req.body.password == 'pass')
+    {
+        req.session.user = {
+            isAuthenticated:true,
+            username: req.body.username
+        }
+        res.redirect("/accountDetails");
+    }
+    else{
+        res.redirect("/");
+    }
+})
 
 exports.create = (req, res) => {
     res.render('createAccount', {
