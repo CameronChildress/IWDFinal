@@ -41,7 +41,7 @@ exports.details = (req, res) => {
 
 exports.login = (req, res) => {
     res.render('login', {
-        title: (req.session.user.isAuthenticated ? "logged in" : "logged out" )
+        title: "log"
         
     })
 }
