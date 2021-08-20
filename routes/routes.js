@@ -30,20 +30,20 @@ let User = mongoose.model('User_Collection', userSchema);
 exports.index = (req, res) => {
     res.render('index', {
         title: "title"
-    })
+    });
 }
 
 exports.details = (req, res) => {
     res.render('accountDetails', {
         title: (req.session.user.isAuthenticated ? "logged in" : "logged out" )
-    })
+    });
 }
 
 exports.login = (req, res) => {
     res.render('login', {
         title: "log"
         
-    })
+    });
 }
 
 exports.loginAction = ((req, res) =>{
