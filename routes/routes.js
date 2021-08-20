@@ -33,6 +33,16 @@ exports.index = (req, res) => {
     });
 }
 
+exports.edit = (req, res) => {
+    res.render('edit', {
+        title: (1==1 ? "logged in" : "logged out" )
+    });
+}
+
+exports.editAccount = (req, res) => {
+    res.redirect('/');
+}
+
 exports.details = (req, res) => {
     res.render('accountDetails', {
         title: (req.session.user.isAuthenticated ? "logged in" : "logged out" )
