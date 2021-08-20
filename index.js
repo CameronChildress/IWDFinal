@@ -38,6 +38,7 @@ app.get('/', routes.index);
 app.get('/login', routes.login);
 app.get('/create',  routes.create);
 app.post('/createAccount', urlencodedparser, routes.createAccount);
+app.post('/login', urlencodedparser, routes.loginAction)
 app.get('/accountDetails', routes.details);
 
 
