@@ -133,6 +133,12 @@ exports.createAccount = (req, res) => {
     });
 };
 
+exports.logOut = (req, res) => {
+    req.session.user = null;
+
+    res.redirect('/');
+}
+
 exports.editAccount = (req, res) => {
     User.find({ username: `${req.session.user.username}`}, (err, docs) => {
         console.log("Editing User");
