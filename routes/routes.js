@@ -52,44 +52,44 @@ exports.details = (req, res) => {
 }
 
 exports.login = (req, res) => {
-    res.render('login', {
-        title: "log"
-        
-    });
+    if (req.session.user) {
+        User.find({ username: `${req.session.user.username}`}, (err, docs) => {
+            res.render('accountDetails', {
+                user: docs[0]
+            });
+        });
+    } else {
+        res.render('login', {
+            title: "log"
+        });
+    }
 }
+
 
 exports.loginAction = ((req, res) =>{
     console.log(req.body.username);
-    let result = userLogin(req.body.username, req.body.password);
-    console.log(result);
-    if(result)
-    {
-        req.session.user = {
-            isAuthenticated:true,
-            username: req.body.username
-        }
-        User.find({ username: `${req.body.username}`}, (err, docs) => {
+    console.log(req.body.password);
+    User.find({ username: `${req.body.username}`}, (err, docs) => {
+        console.log("Found user");
+        if (bcrypt.compareSync(req.body.password, docs[0].password)) {
+            req.session.user = {
+                isAuthenticated:true,
+                username: req.body.username
+            }
+
             res.render('accountDetails', {
                 title: 'Create Account!',
                 user: docs[0]
             });
-        });
-    }
-    else{
-        res.redirect("/");
-    }
+        } else {
+            res.redirect("/");
+        }
+    });
 });
 
 //Pass in username and password and return true or false if valid
 userLogin = (name, password) => {
-    User.find({ username: `${name}`}, (err, docs) => {
-        if (bcrypt.compareSync(password, docs[0].password)) {
-            return true;
-        } else {
-            return false;
-        }
-    });
-    return false;
+    
 }
 
 exports.create = (req, res) => {
