@@ -36,9 +36,14 @@ exports.index = (req, res) => {
 }
 
 exports.edit = (req, res) => {
-    res.render('edit', {
-        title: (1==1 ? "logged in" : "logged out" )
+    User.find({ username: `${req.session.user.username}`}, (err, docs) => {
+        console.log("Editing yser");
+        res.render('edit', {
+            title: (1==1 ? "logged in" : "logged out" ),
+            user : docs[0]
+        });
     });
+
 }
 
 exports.editAccount = (req, res) => {
@@ -124,7 +129,26 @@ exports.createAccount = (req, res) => {
 };
 
 exports.editAccount = (req, res) => {
-    // get the user by id
-    //change that user's info
-    //bitchhhhhhh
+    User.find({ username: `${req.session.user.username}`}, (err, docs) => {
+        console.log("Editing User");
+        console.log(req.session.user.username);
+        docs[0].username = req.body.username;
+        docs[0].password = req.body.password;
+        docs[0].email = req.body.email;
+        docs[0].age = req.body.age;
+        docs[0].question1Answer = req.body.questionOneAnswer;
+        docs[0].question2Answer = req.body.questionTwoAnswer;
+        docs[0].question3Answer = req.body.questionThreeAnswer;
+        
+        docs[0].save((err, user) => {
+            if(err) return console.error(err);
+            console.log(docs[0].username + ' updated.');
+        
+            res.render("accountDetails", {
+                title: `Logged in as ${user.username}`,
+                user: docs[0]
+            })
+        });
+    });
+
 }
