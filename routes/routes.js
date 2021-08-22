@@ -60,14 +60,20 @@ exports.login = (req, res) => {
 
 exports.loginAction = ((req, res) =>{
     console.log(req.body.username);
-    
-    if(userLogin(req.body.username, req.body.password))
+    let result = userLogin(req.body.username, req.body.password);
+    console.log(result);
+    if(result)
     {
         req.session.user = {
             isAuthenticated:true,
             username: req.body.username
         }
-        res.redirect("/accountDetails");
+        User.find({ username: `${req.body.username}`}, (err, docs) => {
+            res.render('accountDetails', {
+                title: 'Create Account!',
+                user: docs[0]
+            });
+        });
     }
     else{
         res.redirect("/");
@@ -77,8 +83,13 @@ exports.loginAction = ((req, res) =>{
 //Pass in username and password and return true or false if valid
 userLogin = (name, password) => {
     User.find({ username: `${name}`}, (err, docs) => {
-        return (bcrypt.compareSync(password, docs[0].password))
+        if (bcrypt.compareSync(password, docs[0].password)) {
+            return true;
+        } else {
+            return false;
+        }
     });
+    return false;
 }
 
 exports.create = (req, res) => {
@@ -106,8 +117,8 @@ exports.createAccount = (req, res) => {
     });
 
     //CHANGE TO HOME PAGE IF NEEDED
-    res.render('createAccount', {
-        title: 'Create Account!',
+    res.render('accountDetails', {
+        title: `Logged in as ${user.username}`,
         user
     });
 };
