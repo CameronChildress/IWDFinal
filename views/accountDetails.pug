@@ -8,7 +8,7 @@ block content
     p Question 2 Answer - #{user.question2Answer}
     p Question 3 Answer - #{user.question3Answer}
 
-    form(id="form" method="post" action="/editAccount")
+    form(id="form" method="get" action="/edit")
         p 
             input(type="submit" value="Edit Details")
 
