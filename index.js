@@ -38,8 +38,11 @@ app.get('/', routes.index);
 app.get('/login', routes.login);
 app.get('/create',  routes.create);
 app.post('/createAccount', urlencodedparser, routes.createAccount);
-app.post('/login', urlencodedparser, routes.loginAction)
-app.get('/accountDetails', routes.details);
+app.post('/login', urlencodedparser, routes.loginAction);
+
+app.get('/accountDetails', checkAuth, routes.details);
+app.get('/edit', checkAuth, routes.edit);
+app.post('/editAccount', urlencodedparser, routes.editAccount);
 
 
 app.listen(3000);
