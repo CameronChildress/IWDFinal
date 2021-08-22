@@ -104,7 +104,7 @@ exports.create = (req, res) => {
 };
 
 exports.createAccount = (req, res) => {
-    let newPass = bcrypt.hashSync(req.body.password);
+    let newPass = bcrypt.hashSync(req.body.password, salt);
 
     let user = new User({
         username: req.body.username,
