@@ -95,9 +95,9 @@ exports.createAccount = (req, res) => {
         password: newPass,
         email: req.body.email,
         age: req.body.age,
-        question1Answer: req.body.question1Answer,
-        question2Answer: req.body.question2Answer,
-        question3Answer: req.body.question3Answer
+        question1Answer: req.body.questionOneAnswer,
+        question2Answer: req.body.questionTwoAnswer,
+        question3Answer: req.body.questionThreeAnswer
     });
 
     user.save((err, user) => {
