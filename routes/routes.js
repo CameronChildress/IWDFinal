@@ -128,6 +128,12 @@ exports.createAccount = (req, res) => {
     });
 };
 
+exports.logOut = (req, res) => {
+    req.session.user = null;
+
+    res.redirect('/');
+}
+
 exports.editAccount = (req, res) => {
     // get the user by id
     //change that user's info
