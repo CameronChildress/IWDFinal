@@ -116,6 +116,11 @@ exports.createAccount = (req, res) => {
         console.log(req.body.username + ' added.');
     });
 
+    req.session.user = {
+        isAuthenticated:true,
+        username: req.body.username
+    }
+
     //CHANGE TO HOME PAGE IF NEEDED
     res.render('accountDetails', {
         title: `Logged in as ${user.username}`,
