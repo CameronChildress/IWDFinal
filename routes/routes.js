@@ -87,9 +87,11 @@ exports.create = (req, res) => {
 };
 
 exports.createAccount = (req, res) => {
+    let newPass = bcrypt.hashSync(req.body.password);
+
     let user = new User({
         username: req.body.username,
-        password: req.body.password,
+        password: newPass,
         email: req.body.email,
         age: req.body.age,
         question1Answer: req.body.question1Answer,
@@ -103,7 +105,10 @@ exports.createAccount = (req, res) => {
     });
 
     //CHANGE TO HOME PAGE IF NEEDED
-    res.redirect('/');
+    res.render('createAccount', {
+        title: 'Create Account!',
+        user
+    });
 };
 
 exports.editAccount = (req, res) => {
