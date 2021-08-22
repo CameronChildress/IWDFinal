@@ -60,7 +60,8 @@ exports.login = (req, res) => {
 
 exports.loginAction = ((req, res) =>{
     console.log(req.body.username);
-    if(req.body.username == 'user' && req.body.password == 'pass')
+    
+    if(userLogin(req.body.username, req.body.password))
     {
         req.session.user = {
             isAuthenticated:true,
