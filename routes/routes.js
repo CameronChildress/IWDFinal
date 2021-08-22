@@ -47,7 +47,7 @@ exports.editAccount = (req, res) => {
 
 exports.details = (req, res) => {
     res.render('accountDetails', {
-        title: (req.session.user.isAuthenticated ? "logged in" : "logged out" )
+        title: (1==1 ? "logged in" : "logged out" )
     });
 }
 
@@ -105,3 +105,9 @@ exports.createAccount = (req, res) => {
     //CHANGE TO HOME PAGE IF NEEDED
     res.redirect('/');
 };
+
+exports.editAccount = (req, res) => {
+    // get the user by id
+    //change that user's info
+    //bitchhhhhhh
+}
