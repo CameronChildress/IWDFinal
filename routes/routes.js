@@ -140,11 +140,12 @@ exports.logOut = (req, res) => {
 }
 
 exports.editAccount = (req, res) => {
+    let newPass = bcrypt.hashSync(req.body.password, salt);
     User.find({ username: `${req.session.user.username}`}, (err, docs) => {
         console.log("Editing User");
         console.log(req.session.user.username);
         docs[0].username = req.body.username;
-        docs[0].password = req.body.password;
+        docs[0].password = newPass;
         docs[0].email = req.body.email;
         docs[0].age = req.body.age;
         docs[0].question1Answer = req.body.questionOneAnswer;
