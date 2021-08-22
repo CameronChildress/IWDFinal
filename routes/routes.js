@@ -76,6 +76,11 @@ exports.loginAction = ((req, res) =>{
     console.log(req.body.password);
     User.find({ username: `${req.body.username}`}, (err, docs) => {
         console.log("Found user");
+        if(docs[0] == undefined)
+        {
+            res.redirect("/");
+        }
+        else
         if (bcrypt.compareSync(req.body.password, docs[0].password)) {
             req.session.user = {
                 isAuthenticated:true,
