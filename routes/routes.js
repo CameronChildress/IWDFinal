@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+let salt = bcrypt.genSaltSync(10);
 
 mongoose.Promise = global.Promise;
 
@@ -69,7 +71,14 @@ exports.loginAction = ((req, res) =>{
     else{
         res.redirect("/");
     }
-})
+});
+
+//Pass in username and password and return true or false if valid
+userLogin = (name, password) => {
+    User.find({ username: `${name}`}, (err, docs) => {
+        return (bcrypt.compareSync(password, docs[0].password))
+    });
+}
 
 exports.create = (req, res) => {
     res.render('createAccount', {
