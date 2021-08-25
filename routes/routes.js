@@ -66,8 +66,10 @@ exports.edit = (req, res) => {
 
 exports.api = (req, res) => {
     let count = [[0,0,0,0],[0,0],[0,0,0]];
+    
 
     User.find({}, (err, docs) =>{
+        console.log(docs)
         docs.forEach(user => {
             switch (user.question1Answer){
                 case "uh" :
@@ -97,7 +99,7 @@ exports.api = (req, res) => {
             switch (user.question3Answer){
                 case "Yes" :
                     count[2][0]++;
-                break;
+                    break;
                 case "No" :
                     count[2][1]++;
                     break;
