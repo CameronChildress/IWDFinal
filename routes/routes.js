@@ -69,11 +69,13 @@ exports.api = (req, res) => {
     
 
     User.find({}, (err, docs) =>{
-        console.log(docs)
+        //console.log(docs)
         docs.forEach(user => {
+            //console.log(user);
+            console.log("First switch");
             switch (user.question1Answer){
                 case "uh" :
-                    count[0][0]++;
+                    count[0][0] = 1;
                     break;
                 case "wha-":
                     count[0][1]++;
@@ -84,18 +86,24 @@ exports.api = (req, res) => {
                 case "doo wahhhh":
                     count[0][3]++;
                     break;
+                default:
+                    console.log(user.question1Answer + " did not match");
             }
 
+            console.log("Second switch");
             switch (user.question2Answer){
                 case "Yes" :
                     count[1][0]++;
-                break;
+                    break;
                 case "No" :
                     count[1][1]++;
                     break;
+                default:
+                    console.log(user.question2Answer + " did not match");
 
             }
 
+            console.log("Third switch");
             switch (user.question3Answer){
                 case "Yes" :
                     count[2][0]++;
@@ -106,13 +114,15 @@ exports.api = (req, res) => {
                 case "*lizard sounds*" :
                     count[2][2]++;
                     break;
+                default:
+                    console.log(user.question3Answer + " did not match");
             }
         });
+
+        console.log(count);
+
+        res.send(count);
     });
-
-    console.log(count);
-
-    res.send(count);
 }
 
 exports.editAccount = (req, res) => {
