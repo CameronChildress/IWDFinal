@@ -65,15 +65,18 @@ exports.edit = (req, res) => {
 
 
 exports.api = (req, res) => {
-    let count = [[0,0,0,0],[0,0],[0,0,0]];
-    
+    var count = [[0,0,0,0],[0,0],[0,0,0]];
+
+    count[0][0]++ ;
 
     User.find({}, (err, docs) =>{
         console.log(docs)
         docs.forEach(user => {
             switch (user.question1Answer){
                 case "uh" :
-                    count[0][0]++;
+                    count[0][0] += 1;
+                    console.log(count[0][0]);
+                    console.log('uh');
                     break;
                 case "wha-":
                     count[0][1]++;
@@ -111,7 +114,7 @@ exports.api = (req, res) => {
     });
 
     console.log(count);
-
+    
     res.send(count);
 }
 
