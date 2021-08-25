@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 let salt = bcrypt.genSaltSync(10);
 
@@ -30,8 +31,19 @@ let User = mongoose.model('User_Collection', userSchema);
 
 
 exports.index = (req, res) => {
+    let title = "Welcome!";
+    if(req.cookies.beenToSiteBefore == 'yes') {
+        title = `You were last here at ${req.cookies.lastVisitTime}`;
+        let now = new Date();
+        res.cookie('lastVisitTime', `${now.getHours()}:${now.getMinutes()}`);
+    } else {
+        res.cookie('beenToSiteBefore', 'yes', {maxAge: 99999999999999});
+        let now = new Date();
+        res.cookie('lastVisitTime', `${now.getHours()}:${now.getMinutes()}`);
+    }
+
     res.render('index', {
-        title: "title"
+        title
     });
 }
 
