@@ -27,6 +27,11 @@ let userSchema = mongoose.Schema({
     question3Answer: String
 });
 
+let QuestionAnswer = {
+    answer: String,
+    count: Number
+}
+
 let User = mongoose.model('User_Collection', userSchema);
 
 
@@ -56,6 +61,54 @@ exports.edit = (req, res) => {
         });
     });
 
+}
+
+
+exports.api = (req, res) => {
+    let count = [[0,0,0,0],[0,0],[0,0,0]];
+
+    User.find({}, (err, docs) =>{
+        docs.forEach(user => {
+            switch (user.question1Answer){
+                case "uh" :
+                    count[0][0]++;
+                    break;
+                case "wha-":
+                    count[0][1]++;
+                    break;
+                case "whuhhh":
+                    count[0][2]++;
+                    break;
+                case "doo wahhhh":
+                    count[0][3]++;
+                    break;
+            }
+
+            switch (user.question2Answer){
+                case "Yes" :
+                    count[1][0]++;
+                break;
+                case "No" :
+                    count[1][1]++;
+                    break;
+
+            }
+
+            switch (user.question3Answer){
+                case "Yes" :
+                    count[2][0]++;
+                break;
+                case "No" :
+                    count[2][1]++;
+                    break;
+                case "*lizard sounds*" :
+                    count[2][2]++;
+                    break;
+            }
+        });
+    });
+
+    res.send(count);
 }
 
 exports.editAccount = (req, res) => {
