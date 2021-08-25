@@ -110,6 +110,8 @@ exports.api = (req, res) => {
         });
     });
 
+    console.log(count);
+
     res.send(count);
 }
 
