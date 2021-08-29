@@ -28,10 +28,10 @@ updateGraphs = () => {
 }
 
 updateGraph1 = (data1) => {
-    colorRect(ctx1, "#0f0", 0, 25, data[1] * 30, 100);
-    colorRect(ctx1, "#f00", 0, 150, data[1] * 30, 100);
-    colorRect(ctx1, "#00f", 0, 275, data[1] * 30, 100);
-    colorRect(ctx1, "#ff0", 0, 400, data[1] * 30, 100);
+    colorRect(ctx1, "#0f0", 0, 25, data1[1] * 30, 100);
+    colorRect(ctx1, "#f00", 0, 150, data1[1] * 30, 100);
+    colorRect(ctx1, "#00f", 0, 275, data1[1] * 30, 100);
+    colorRect(ctx1, "#ff0", 0, 400, data1[1] * 30, 100);
 }
 
 updateGraph2 = (data2) => {
