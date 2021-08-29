@@ -11,3 +11,8 @@ body
 {
     margin: 10;
 }
+canvas
+{
+    border: whitesmoke;
+    border-width: 25px;
+}
