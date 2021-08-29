@@ -10,7 +10,7 @@ const canvas2 = document.getElementById('canvas2');
 const ctx2 = canvas2.getContext('2d');
 
 canvas2.width = 800;
-canvas2.height = 600;
+canvas2.height = 300;
 
 const canvas3 = document.getElementById('canvas3');
 const ctx3 = canvas3.getContext('2d');
@@ -40,11 +40,19 @@ updateGraph1 = (data1) => {
 }
 
 updateGraph2 = (data2) => {
-    
+    colorText(ctx2, "#fff", "What the dog doin?", 0, 40);
+    colorRect(ctx2, "#0f0", 0, 40, data2[0] * 50, 100);
+    colorText(ctx2, "#fff", "How the dog doin?", 0, 180);
+    colorRect(ctx2, "#f00", 0, 180, data2[1] * 50, 100);
 }
 
 updateGraph3 = (data3) => {
-    
+    colorText(ctx3, "#fff", "Yes", 0, 40);
+    colorRect(ctx3, "#0f0", 0, 40, data3[0] * 50, 100);
+    colorText(ctx3, "#fff", "No", 0, 180);
+    colorRect(ctx3, "#f00", 0, 180, data3[1] * 50, 100);
+    colorText(ctx3, "#fff", "*liard sounds*", 0, 320);
+    colorRect(ctx3, "#00f", 0, 320, data3[2] * 50, 100);
 }
 
 colorRect = (ctx, color, x, y, width, height) => {
