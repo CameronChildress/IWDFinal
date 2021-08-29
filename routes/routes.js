@@ -95,10 +95,10 @@ exports.api = (req, res) => {
 
             console.log("Second switch");
             switch (user.question2Answer){
-                case "Yes" :
+                case "What the dog doin?" :
                     count[1][0]++;
                     break;
-                case "No" :
+                case "How the dog doin?" :
                     count[1][1]++;
                     break;
                 default:
