@@ -1,6 +1,7 @@
 extends layout 
 
 block content 
+
     div(class='leftBox')
         p Username - #{user.username}
         p Age - #{user.age}
@@ -8,6 +9,7 @@ block content
         p What? - #{user.question1Answer}
         p Did OJ do it? - #{user.question2Answer}
         p Do lizards control the government? - #{user.question3Answer}
+
 
     form(id="form" method="get" action="/edit")
         p 
