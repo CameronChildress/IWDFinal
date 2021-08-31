@@ -1,29 +1,30 @@
 extends layout 
 
 block content 
-    form(id='form' method="post" action="/editAccount")
-        p Username 
-            input(type="text" name="username" value = user.username)
-        p Password 
-            input(type="text" name="password")          
-        p Email  
-            input(type="text" name="email" value = user.email)    
-        p Age 
-            input(type="text" name="age" value = user.age)    
-        p Question 1 - What?
-            select(name="questionOneAnswer")
-                option(value="uh") uh
-                option(value="wha-") wha-
-                option(value="whuhhh") whuhhh
-                option(value="wahhhh") doo wahhhh
-        p Question 2 - Did OJ Simpson do it?
-            select(name="questionTwoAnswer")
-                option(value="Yes") Yes
-                option(value="No") No
-        p Question 3 - Is the government controlled by Lizards?
-            select(name="questionThreeAnswer")
-                option(value="Yes") Yes
-                option(value="No") No
-                option(value="*lizard sounds*") *lizard sounds*
-        p 
-            input(type="submit" value="Confirm")
+    div(class='leftBox')
+        form(id='form' method="post" action="/editAccount")
+            p Username 
+                input(type="text" name="username" value = user.username)
+            p Password 
+                input(type="text" name="password")          
+            p Email  
+                input(type="text" name="email" value = user.email)    
+            p Age 
+                input(type="text" name="age" value = user.age)    
+            p Question 1 - What?
+                select(name="questionOneAnswer")
+                    option(value="uh") uh
+                    option(value="wha-") wha-
+                    option(value="whuhhh") whuhhh
+                    option(value="wahhhh") doo wahhhh
+            p Question 2 - Did OJ Simpson do it?
+                select(name="questionTwoAnswer")
+                    option(value="Yes") Yes
+                    option(value="No") No
+            p Question 3 - Is the government controlled by Lizards?
+                select(name="questionThreeAnswer")
+                    option(value="Yes") Yes
+                    option(value="No") No
+                    option(value="*lizard sounds*") *lizard sounds*
+            p 
+                input(type="submit" value="Confirm")
