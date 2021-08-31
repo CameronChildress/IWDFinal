@@ -57,7 +57,7 @@ exports.edit = (req, res) => {
     User.find({ username: `${req.session.user.username}`}, (err, docs) => {
         console.log("Editing yser");
         res.render('edit', {
-            title: (1==1 ? "logged in" : "logged out" ),
+            title: "Edit User",
             user : docs[0]
         });
     });
@@ -140,7 +140,7 @@ exports.editAccount = (req, res) => {
 
 exports.details = (req, res) => {
     res.render('accountDetails', {
-        title: (1==1 ? "logged in" : "logged out" )
+        title: "Account details"
     });
 }
 

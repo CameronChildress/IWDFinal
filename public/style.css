@@ -20,5 +20,12 @@ canvas
 }
 .leftBox
 {
+    display: inline-block;
+    padding: 5px;
+    border: whitesmoke;
+    background-color:darkred;
+    border-width: 10px;
+    border-radius: 5px;
     text-align: left;
+    width: 500px;
 }
