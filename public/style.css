@@ -16,3 +16,7 @@ canvas
     border: whitesmoke;
     border-width: 25px;
 }
+.leftBox
+{
+    text-align: left;
+}

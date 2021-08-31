@@ -1,29 +1,30 @@
 extends layout 
 
 block content 
-    form(id='form' method="post" action="/createAccount")
-        p Username 
-            input(type="text" name="username")
-        p Password 
-            input(type="text" name="password")         
-        p Email  
-            input(type="text" name="email")    
-        p Age 
-            input(type="text" name="age")    
-        p Question 1 - What?
-            select(name="questionOneAnswer")
-                option(value="uh") uh
-                option(value="wha-") wha-
-                option(value="whuhhh") whuhhh
-                option(value="doo wahhhh") doo wahhhh
-        p Question 2 - Dog?
-            select(name="questionTwoAnswer")
-                option(value="What the dog doin?") What the dog doin?
-                option(value="How the dog doin?") How the dog doin?
-        p Question 3 - Is the government controlled by Lizards?
-            select(name="questionThreeAnswer")
-                option(value="Yes") Yes
-                option(value="No") No
-                option(value="*lizard sounds*") *lizard sounds*
-        p 
-            input(type="submit" value="Confirm")
+    div(class='leftBox')
+        form(id='form' method="post" action="/createAccount")
+            p Username 
+                input(type="text" name="username")
+            p Password 
+                input(type="text" name="password")         
+            p Email  
+                input(type="text" name="email")    
+            p Age 
+                input(type="text" name="age")    
+            p Question 1 - What?
+                select(name="questionOneAnswer")
+                    option(value="uh") uh
+                    option(value="wha-") wha-
+                    option(value="whuhhh") whuhhh
+                    option(value="doo wahhhh") doo wahhhh
+            p Question 2 - Dog?
+                select(name="questionTwoAnswer")
+                    option(value="What the dog doin?") What the dog doin?
+                    option(value="How the dog doin?") How the dog doin?
+            p Question 3 - Is the government controlled by Lizards?
+                select(name="questionThreeAnswer")
+                    option(value="Yes") Yes
+                    option(value="No") No
+                    option(value="*lizard sounds*") *lizard sounds*
+            p 
+                input(type="submit" value="Confirm")
