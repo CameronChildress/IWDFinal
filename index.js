@@ -50,5 +50,6 @@ app.get('/edit', checkAuth, routes.edit);
 app.post('/editAccount', urlencodedparser, routes.editAccount);
 
 app.get('/api', routes.api);
+app.get('/graphs', routes.graph);
 
 app.listen(3000);

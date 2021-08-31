@@ -1,0 +1,24 @@
+html{
+    background-color: crimson;
+    color: whitesmoke;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+header
+{
+    background-color: #151515;
+}
+body
+{
+    margin: 10;
+    align-content: center;
+    text-align: center;
+}
+canvas
+{
+    border: whitesmoke;
+    border-width: 25px;
+}
+.leftBox
+{
+    text-align: left;
+}

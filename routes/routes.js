@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 const bcrypt = require('bcryptjs');
 let salt = bcrypt.genSaltSync(10);
 
@@ -126,6 +127,11 @@ exports.api = (req, res) => {
 
         res.send(count);
     });
+}
+
+exports.graph = (req , res) => {
+    res.sendFile(path.join(__dirname, '../frontend/home.html'));
+    res.sendFile(path.join(__dirname, '../public/style.css'))
 }
 
 exports.editAccount = (req, res) => {
