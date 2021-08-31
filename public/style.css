@@ -10,6 +10,8 @@ header
 body
 {
     margin: 10;
+    align-content: center;
+    text-align: center;
 }
 canvas
 {
